@@ -1,0 +1,264 @@
+//Question NO::01
+ #include<iostream>
+ using namespace std;
+
+
+ void fun(int x) {  // 'x' is a **Formal Parameter**
+     cout << "Inside function, x = " << x << endl;
+ }
+
+ int main() {
+     int a = 10;  // 'a' is an **Actual Parameter**
+     fun(a);  // Passing 'a' as an argument
+     return 0;
+ }
+----------------No1---------------------
+
+ //Function 
+ void fun(){
+     cout<<"Wasif Ali Wasif";
+ }
+ int main(){
+     fun();
+
+--------------No2-----------------------
+
+If you sum two number using function
+
+ int fun(int a,int b){
+     return a+b;
+ }
+ int main(){
+     int a,b;
+     cout<<"Enter two number ::> ";
+     cin>>a>>b;
+     cout<<"Sum of the number is ::> "<<fun(a,b);
+
+
+
+If you substract two number using function :: 
+
+ int fun(int a,int b){
+     return a-b;
+ }
+ int main(){
+     int a,b;
+     cout<<"Enter two number ::>> ";
+     cin>>a>>b;
+     cout<<"Substraction of two number is :: > "<<fun(a,b);
+
+Table
+
+ void fun(int a){
+   for(int i=1; i<=10; i++){
+         cout<<a<<" * "<<i<<" = "<<a*i<<endl;
+     }
+
+ }
+ int main(){
+     int n;
+     cout<<"Enter the number ::> ";
+     cin>>n;
+ fun(n);
+
+
+ Function  Prototype ka use kar ka ham program karta han thora sa
+       :::: >|
+/*is program ma ham na jasa ka funcation ka use to kia lakin bad ma to ham function prototype ka use kara ga 
+is ka matlab ya ha ka ham function ko shoro ma initilizatie kara ga ta ka error na aya */
+
+ int fun(int n);
+ int main(){int n;
+     cout<<"Enter the number :: ";
+     cin>>n;
+     cout<<"The square of the number is :: > "<<fun(n);
+ return 0;
+ }
+ int fun(int n){
+     return n*n;
+ }
+
+
+Pass by value
+ :: > sab sa easy example ma da raha ho is sa achi example koi nahi da sakta apko
+ int fun(int n){
+ n=20;
+     return n;
+ }
+
+ int main(){
+     int a=10;
+     cout<<fun(a);
+     cout<<endl<<a;
+     return 0;
+ }
+
+Pass by Reference :: 
+
+ int fun(int &n){
+     n=20;
+         return n;
+     }
+    
+     int main(){
+         int a=10;
+         cout<<fun(a);
+         cout<<endl<<a;
+         return 0;
+     }
+
+ this is the easy example of pass by value or pass by reference 
+
+ void fun(int  a,int b){
+     int temp=a;
+     a=b;
+     b=temp;                       //Function ma ham na swap kia value lakin neacha nhi hoya is ke wajja pass by value ha 
+ cout<<a<<" and "<<b;
+ }
+ int main(){
+     int a=10; 
+     int b=20;
+     fun(a,b);
+ cout<<endl<<"A = "<<a<<" B is "<<b;
+     return 0;
+ }
+
+------------------Pass By Reference Example solid ---------------------------// 
+
+ void fun(int  &a,int &b){
+     int temp=a;
+     a=b;
+     b=temp;                       //Function ma ham na swap kia value satt he neacha wala value change  hoya is ke wajja pass by Reference ha 
+ cout<<a<<" and "<<b;
+ }
+ int main(){
+     int a=10; 
+     int b=20;
+     fun(a,b);
+ cout<<endl<<"A = "<<a<<" B is "<<b;
+     return 0;
+ }
+
+ ==============================Recurision=======================================\\
+ 
+ Factorial
+
+ int fac(int n){
+  if(n<1) return 1;
+  return n*fac(n-1);
+ }
+ int main(){
+     int n;
+     cout<<"Enter the number ::> ";
+     cin>>n;
+     cout<<"Factorial of the number is ::>  "<<fac(n);
+     return 0;
+ }
+
+ //Fibbonic Number :: 
+
+ int fab(int n){
+     if(n==0) return 0;
+     if(n==1) return 1;
+     return fab(n-1)+fab(n-2);
+    }
+    int main(){
+        int n;
+        cout<<"Enter the number ::> ";
+        cin>>n;
+        cout<<"Fibonnic of the number is ::>  "<<fab(n);
+        return 0;
+    }
+
+Prime Number ::> 
+ #include<cmath>
+ int prime(int n){
+     if(n<2) return false;
+     for(int i=2; i<=sqrt(n); i++){
+         if(n%i==0) return false;
+     }
+     return true;
+ }
+ int main(){
+     int n;
+     cout<<"Enter the number ::> ";
+     cin>>n;
+     if(prime(n))
+     cout<<"Number is prime ";
+     else
+     cout<<"Number is not a prime ";
+     return 0;
+ }
+
+ int fun(int a,int b,int c){
+ if(a>b && a>c)
+ return a;
+ else if(b>a && b>c)
+ return b;
+ else
+ return c;
+ }
+ int main(){
+     int a,b,c;
+     cout<<"Enter the number ::> ";
+     cin>>a>>b>>c;
+     cout<<"Maximum number is "<<fun(a,b,c);
+     return 0;
+ }
+
+===================Number Before and After ============================  \\
+
+ void fun(int n){
+     int a,b;
+     a=n-1;
+     b=n+1;
+     cout<<"Before is == "<<a<<" and after is == "<<b;
+     }
+     int main(){
+         int n;
+     cout<<"Enter the number ::> ";
+     cin>>n;
+     fun(n);
+     return 0;
+ }
+
+========  Default Values ==============\\
+
+ int fun(int a,int b=10){
+     return a+b;
+ }
+ int main(){
+     int a,b;
+     cout<<"Enter the value ";
+     cin>>a;
+     cout<<"Sum of the value is ::> "<<fun(a);
+     return 0;
+ }
+
+
+INLINE FUNCTION
+
+ inline void name(){
+     cout<<"Wasif ali Wasif"<<endl;
+ }
+ int main(){
+     name();
+     name();
+     return 0;
+ }
+
+Another Example of Pass by value or Pass by reference 
+
+ void swap(int &a,int &b)
+ {
+     int temp=a;
+     a=b;
+     b=temp;
+ }
+ int main(){
+     int a=10,b=20;
+     cout<<"the value of A is "<<a<<" And B is "<<b<<endl;
+     swap(a,b);
+     cout<<"the value of A is "<<a<<" And B is "<<b;
+     return 0;
+ }
